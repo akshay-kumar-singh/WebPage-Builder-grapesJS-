@@ -1,70 +1,68 @@
-/* src/WebBuilder.css */
 .web-builder-container {
-    display: flex;
-  }
-  
-  .sidebar {
-    width: 220px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-right: 1px solid #ddd;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    overflow-y: auto;
-    z-index: 1;
-  }
-  
-  #gjs {
-    margin-left: 260px;
-    flex: 1;
-    height: 100vh;
-    overflow-y: auto;
-  }
-  
-  .sidebar h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-  
-  .sidebar-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-  }
-  
-  .sidebar-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    background-color: #eaeaea;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  
-  .sidebar-item:hover {
-    background-color: #ddd;
-  }
-  
-  .icon {
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-  
-  .search-input {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .label {
-    font-size: 14px;
-  }
-  
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+#gjs {
+  margin-left: 260px;
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.sidebar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.sidebar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #eaeaea;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.sidebar-item:hover {
+  background-color: #ddd;
+}
+
+.icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.search-input {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.label {
+  font-size: 14px;
+}

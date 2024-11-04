@@ -1,8 +1,7 @@
-// src/components/WebBuilder.js
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import GrapesJSEditor from './GrapesJSEditor';
-import sections from './sections'; // Import the sections array
+import sections from './sections'; 
 import './WebBuilder.css';
 
 function WebBuilder() {

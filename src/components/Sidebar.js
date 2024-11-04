@@ -1,4 +1,3 @@
-// src/components/Sidebar.js
 import React from 'react';
 import SidebarItem from './SidebarItem';
 import SearchBar from './SearchBar';

@@ -1,4 +1,3 @@
-// src/components/SidebarItem.js
 import React from 'react';
 
 function SidebarItem({ id, label, icon, onClick }) {

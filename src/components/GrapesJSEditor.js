@@ -1,4 +1,3 @@
-// src/components/GrapesJSEditor.js
 import { useEffect } from 'react';
 import grapesjs from 'grapesjs';
 import 'grapesjs/dist/css/grapes.min.css';
@@ -8,7 +7,7 @@ function GrapesJSEditor({ sections }) {
   useEffect(() => {
     const editor = grapesjs.init({
       container: '#gjs',
-      height: '700px',
+      height: '100vh',
       width: '100%',
       plugins: ['gjs-preset-webpage'],
       storageManager: {
@@ -34,15 +33,48 @@ function GrapesJSEditor({ sections }) {
         label,
         content,
         category: 'Add Section',
+        attributes: { class: 'fa fa-layer-group' },
         draggable: true,
-        removable: true,
+        editable: true,
+        resizable: true,
       });
     });
-    
+
+    editor.DomComponents.addType('default', {
+      isComponent: el => true,
+      model: {
+        defaults: {
+          draggable: true,
+          editable: true,
+          resizable: {
+            tl: 1,
+            tc: 1,
+            tr: 1,
+            cl: 1,
+            cr: 1,
+            bl: 1,
+            bc: 1,
+            br: 1,
+            ratio: false,
+          },
+          style: {
+            minHeight: '50px',
+            minWidth: '100px',
+            position: 'relative',
+            border: '1px dashed #ddd',
+            padding: '10px',
+          },
+        },
+      },
+    });
 
     window.handleAddComponent = (type) => {
       const block = editor.BlockManager.get(type);
       if (block) editor.addComponents(block.get('content'));
+    };
+
+    return () => {
+      editor.destroy();
     };
   }, [sections]);
 

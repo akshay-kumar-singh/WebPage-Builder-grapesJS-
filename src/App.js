@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import WebBuilder from './components/WebBuilder';
 import './App.css';
