@@ -40,6 +40,21 @@ const sections = [
     `,
   },
   {
+    id: 'photo',
+    label: 'Photo',
+    icon: '📷',
+    content: `
+      <div class="photo-section" style="
+        padding: 20px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      ">
+        <img src="https://via.placeholder.com/300" alt="Upload Photo" style="max-width: 100%; height: auto;" />
+      </div>
+    `,
+  },
+  {
     id: 'hero',
     label: 'Hero',
     icon: '🎉',
