@@ -18,6 +18,114 @@ const sections = [
     `,
   },
   {
+    id: 'institute',
+    label: 'Institute Page',
+    icon: '🏫',
+    content: `
+      <section id="institute-page" style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
+        <!-- Navbar -->
+        <nav style="
+          display: flex;
+          justify-content: space-between;
+          padding: 15px 30px;
+          background-color: #003366;
+          color: white;
+        ">
+          <div style="font-weight: bold; font-size: 1.5em;">Institute Name</div>
+          <ul style="list-style: none; display: flex; gap: 20px;">
+            <li><a href="#" style="color: white; text-decoration: none;">Home</a></li>
+            <li><a href="#courses" style="color: white; text-decoration: none;">Courses</a></li>
+            <li><a href="#about" style="color: white; text-decoration: none;">About Us</a></li>
+            <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+          </ul>
+        </nav>
+  
+        <!-- Hero Section -->
+        <section id="hero" style="
+          background-image: url('https://via.placeholder.com/1200x500');
+          background-size: cover;
+          color: white;
+          padding: 100px 20px;
+          text-align: center;
+        ">
+          <h1>Welcome to Our Institute</h1>
+          <p>Empowering Your Future with Quality Education</p>
+          <button style="
+            padding: 15px 30px;
+            background-color: #FF5722;
+            border: none;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+          ">Explore More</button>
+        </section>
+  
+        <!-- Courses Section -->
+        <section id="courses" style="
+          padding: 50px 20px;
+          background-color: #f9f9f9;
+        ">
+          <h2 style="text-align: center; margin-bottom: 30px;">Our Popular Courses</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div style="
+              background-color: white;
+              padding: 20px;
+              border-radius: 8px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              width: 300px;
+            ">
+              <h3>Course 1: Web Development</h3>
+              <p>Learn the fundamentals of web development using modern technologies.</p>
+            </div>
+            <div style="
+              background-color: white;
+              padding: 20px;
+              border-radius: 8px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              width: 300px;
+            ">
+              <h3>Course 2: Data Science</h3>
+              <p>Master data analysis and machine learning techniques with hands-on projects.</p>
+            </div>
+            <div style="
+              background-color: white;
+              padding: 20px;
+              border-radius: 8px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              width: 300px;
+            ">
+              <h3>Course 3: Graphic Design</h3>
+              <p>Enhance your creativity with in-depth graphic design courses.</p>
+            </div>
+          </div>
+        </section>
+  
+        <!-- About Section -->
+        <section id="about" style="
+          padding: 40px 20px;
+          background-color: #e6e6e6;
+          text-align: left;
+        ">
+          <h2>About Us</h2>
+          <p>Our institute has been a leader in education for over a decade, providing students with the resources and skills they need to excel in their chosen fields.</p>
+        </section>
+  
+        <!-- Footer -->
+        <footer style="
+          padding: 20px;
+          background-color: #003366;
+          color: white;
+          text-align: center;
+        ">
+          <p>&copy; 2024 Institute Name. All rights reserved.</p>
+          <p>Contact us at: <a href="mailto:info@institute.com" style="color: #FF5722;">info@institute.com</a></p>
+        </footer>
+      </section>
+    `,
+  },
+  
+  {
     id: 'navbar',
     label: 'Navbar',
     icon: '📌',

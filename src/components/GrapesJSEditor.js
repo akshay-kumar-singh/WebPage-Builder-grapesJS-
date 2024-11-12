@@ -33,24 +33,29 @@ function GrapesJSEditor({ sections }) {
       },
     });
 
-    sections.forEach(({ id, label, content }) => {
-      editor.BlockManager.add(id, {
-        label,
-        content,
-        category: "Add Section",
-        attributes: { class: "fa fa-layer-group" },
-        draggable: true,
-        editable: true,
-        resizable: true,
-      });
+    // Ensure the body section is present
+    editor.on('load', () => {
+      const body = editor.getWrapper();
+
+      // Check if the main wrapper exists, if not, add it
+      if (!body.find("#main-wrapper").length) {
+        body.append(`
+          <div id="main-wrapper" style="min-height: 100vh; background-color: #e0e0e0; border: 1px solid #ccc; padding: 20px;">
+            <p style="text-align: center; color: #666;"></p>
+          </div>
+        `);
+      }
+
+      editor.refresh(); // Ensure rendering of new content
     });
 
+    // Ensure components can be dragged inside the main wrapper
     editor.DomComponents.addType("default", {
       isComponent: (el) => true,
       model: {
         defaults: {
-          draggable: true,
-          editable: true,
+          draggable: "#main-wrapper",
+          droppable: true,
           resizable: {
             tl: 1,
             tc: 1,
@@ -65,7 +70,6 @@ function GrapesJSEditor({ sections }) {
           style: {
             minHeight: "50px",
             minWidth: "100px",
-            position: "relative",
             border: "1px dashed #ddd",
             padding: "10px",
           },
@@ -73,6 +77,18 @@ function GrapesJSEditor({ sections }) {
       },
     });
 
+    // Add sections to the Block Manager
+    sections.forEach(({ id, label, content }) => {
+      editor.BlockManager.add(id, {
+        label,
+        content,
+        category: "Add Section",
+        attributes: { class: "fa fa-layer-group" },
+        draggable: true,
+      });
+    });
+
+    // Allow uploaded images to replace selected components
     window.handleUploadPhoto = () => {
       const fileInput = document.createElement("input");
       fileInput.type = "file";
@@ -83,7 +99,6 @@ function GrapesJSEditor({ sections }) {
           const reader = new FileReader();
           reader.onload = () => {
             const uploadedImage = reader.result;
-            // Find and replace the placeholder image with the uploaded image
             const selectedComponent = editor.getSelected();
             if (selectedComponent) {
               selectedComponent.set(
@@ -98,9 +113,17 @@ function GrapesJSEditor({ sections }) {
       fileInput.click();
     };
 
+    // Function to add a block to the main wrapper directly
     window.handleAddComponent = (type) => {
       const block = editor.BlockManager.get(type);
-      if (block) editor.addComponents(block.get("content"));
+      if (block) {
+        const mainWrapper = editor.getWrapper().find("#main-wrapper")[0];
+        if (mainWrapper) {
+          mainWrapper.append(block.get("content"));
+        } else {
+          editor.addComponents(block.get("content"));
+        }
+      }
     };
 
     return () => {
