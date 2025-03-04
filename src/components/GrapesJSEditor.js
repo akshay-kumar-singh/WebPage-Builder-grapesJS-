@@ -33,11 +33,28 @@ function GrapesJSEditor({ sections }) {
       },
     });
 
-    // Ensure the body section is present
+    editor.Panels.addButton('options', {
+      id: 'save',
+      className: 'fa fa-save',
+      command: 'save',
+      attributes: { title: 'Save' },
+    });
+
+    editor.Commands.add('save', {
+      run: function(editor, sender) {
+        sender && sender.set('active', false); 
+
+        const htmlContent = editor.getHtml();
+        const cssContent = editor.getCss();
+
+        console.log('HTML Content:', htmlContent);
+        console.log('CSS Content:', cssContent);
+      }
+    });
+
     editor.on('load', () => {
       const body = editor.getWrapper();
 
-      // Check if the main wrapper exists, if not, add it
       if (!body.find("#main-wrapper").length) {
         body.append(`
           <div id="main-wrapper" style="min-height: 100vh; background-color: #e0e0e0; border: 1px solid #ccc; padding: 20px;">
@@ -46,10 +63,9 @@ function GrapesJSEditor({ sections }) {
         `);
       }
 
-      editor.refresh(); // Ensure rendering of new content
+      editor.refresh();
     });
 
-    // Ensure components can be dragged inside the main wrapper
     editor.DomComponents.addType("default", {
       isComponent: (el) => true,
       model: {
@@ -77,7 +93,6 @@ function GrapesJSEditor({ sections }) {
       },
     });
 
-    // Add sections to the Block Manager
     sections.forEach(({ id, label, content }) => {
       editor.BlockManager.add(id, {
         label,
@@ -88,7 +103,6 @@ function GrapesJSEditor({ sections }) {
       });
     });
 
-    // Allow uploaded images to replace selected components
     window.handleUploadPhoto = () => {
       const fileInput = document.createElement("input");
       fileInput.type = "file";
@@ -113,7 +127,6 @@ function GrapesJSEditor({ sections }) {
       fileInput.click();
     };
 
-    // Function to add a block to the main wrapper directly
     window.handleAddComponent = (type) => {
       const block = editor.BlockManager.get(type);
       if (block) {

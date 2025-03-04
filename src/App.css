@@ -37,3 +37,13 @@
   }
 }
 
+.gjs-pn-btn.fa-save {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.gjs-pn-btn.fa-save:hover {
+  background-color: #45a049;
+}
